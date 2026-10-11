@@ -9,6 +9,7 @@ import fitz  # PyMuPDF
 
 TOC_KEYWORDS = (
     "indice",
+    "ÍNDICE",
     "índice",
     "tabla de contenidos",
     "tabla de contenido",
