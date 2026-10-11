@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>PDF Bookmark Maker</title>
+  <link rel="stylesheet" href="/static/styles.css" />
+</head>
+<body>
+  <main class="shell">
+    <section class="hero">
+      <div class="eyebrow">PDF Bookmark Maker</div>
+      <h1>Añade el índice como <span>bookmarks</span> a tu PDF.</h1>
+      <p>Sube un libro PDF y la aplicación detectará su tabla de contenidos, calculará las páginas y devolverá un PDF con un esquema navegable.</p>
+    </section>
+
+    <section class="card" id="dropzone">
+      <div class="drop-icon">↥</div>
+      <h2>Suelta tu PDF aquí</h2>
+      <p>o selecciónalo desde tu dispositivo · máximo 100 MB</p>
+      <label class="button primary" for="file">Elegir PDF</label>
+      <input id="file" type="file" accept="application/pdf,.pdf" hidden />
+      <div class="filename" id="filename"></div>
+    </section>
+
+    <section class="options card compact">
+      <label class="check-row">
+        <input id="hierarchy" type="checkbox" checked />
+        <span><strong>Detectar jerarquía</strong><small>Usa numeración e indentación para crear niveles en el esquema.</small></span>
+      </label>
+    </section>
+
+    <button id="process" class="button process" disabled>Crear bookmarks</button>
+
+    <section id="status" class="status card hidden">
+      <div class="status-row"><div class="spinner" id="spinner"></div><div><strong id="status-title">Procesando…</strong><p id="status-text">Analizando el índice del libro.</p></div></div>
+      <div class="progress"><div id="progressbar"></div></div>
+    </section>
+
+    <section id="result" class="result card hidden">
+      <div class="result-icon">✓</div>
+      <div>
+        <h2>PDF listo</h2>
+        <p id="result-text"></p>
+        <a id="download" class="button primary" href="#">Descargar PDF</a>
+      </div>
+    </section>
+
+    <section id="error" class="error card hidden">
+      <strong>No se pudo procesar el archivo.</strong>
+      <p id="error-text"></p>
+    </section>
+
+    <footer>Procesamiento en el servidor · El archivo de salida se genera como una copia del PDF original.</footer>
+  </main>
+  <script src="/static/app.js"></script>
+</body>
+</html>
