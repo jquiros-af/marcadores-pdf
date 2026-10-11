@@ -173,7 +173,7 @@ def _find_toc_pages(doc: fitz.Document) -> list[int]:
         keyword_score = 4 if any(_norm(word) in joined for word in TOC_KEYWORDS) else 0
         entry_score = sum(1 for item in lines if _parse_entry(item["text"]))
         score = keyword_score + min(entry_score, 8)
-        if score >= 5:
+        if score >= 4:
             scored.append((pno, score, entry_score))
 
     if not scored:
