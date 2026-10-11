@@ -203,7 +203,7 @@ def _resolve_pages(entries: list[dict], doc: fitz.Document, toc_pages: list[int]
         return []
 
     # First try to infer an exact printed-page -> PDF-page offset by locating headings.
-    search_start = max(toc_pages) + 1 if toc_pages else 0
+    search_start = max(toc_pages) if toc_pages else 0
     page_lines = _build_page_text_index(doc, search_start)
     offset_votes = []
 
