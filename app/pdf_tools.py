@@ -75,7 +75,8 @@ def _parse_entry(text: str):
     match = ENTRY_RE.match(text) or TRAILING_PAGE_RE.match(text)
     if not match:
         return None
-    title = _clean_title(match.group("title"))
+    #title = _clean_title(match.group("title")
+    title = match.group("title")
     if len(title) < 2:
         return None
     page = int(match.group("page"))
