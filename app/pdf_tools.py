@@ -169,7 +169,7 @@ def _find_toc_pages(doc: fitz.Document) -> list[int]:
         lines = _page_lines(doc[pno])
         if not lines:
             continue
-        joined = _norm(" ".join(item["text"] for item in lines[:90]))
+        joined = _norm(" ".join(item["text"] for item in lines[:250]))
         keyword_score = 4 if any(_norm(word) in joined for word in TOC_KEYWORDS) else 0
         entry_score = sum(1 for item in lines if _parse_entry(item["text"]))
         score = keyword_score + min(entry_score, 8)
